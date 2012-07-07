@@ -3,10 +3,10 @@
 
 2Checkout INS Test Class
 
-The return.php file converts the parameters on the approved URL 
-passback and saves them to a JSON file. Some defaults have to be 
-used because some parameter sets return more data than others. 
-The test.php script loads the JSON data, computes the hash and 
+The return.php file converts the parameters on the approved URL
+passback and saves them to a JSON file. Some defaults have to be
+used because some parameter sets return more data than others.
+The test.php script loads the JSON data, computes the hash and
 returns the parameters as an INS message.
 
 Date: 04-11-2012
@@ -109,15 +109,13 @@ $sale = json_decode(file_get_contents($file), true);
 				</fieldset>
 			</form>
 			</div>
-		</div>
-	</div>
-</div>
 ";
 }
 
 //Use the code below is provided incase you would rather use curl to replicate the call.
 
 if ($_POST) {
+
   $data = array();
     foreach($_POST as $k => $v) {
 	    //Sanitize Input Data
@@ -129,7 +127,7 @@ if ($_POST) {
 	$url = $data['ins_url'];
 	unset($data['submit']);
 	unset($data['ins_url']);
-    $data['key_count'] = count($data);
+        $data['key_count'] = count($data);
 
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -139,12 +137,13 @@ if ($_POST) {
 	$response = curl_exec($ch);
 	curl_close($ch);
 
-	echo "<h3>INS Parameters Sent</h3>";
-    echo "<p><pre>";
-    print_r($data);
-    echo "</p></pre>";
+        echo "<p><pre>";
+        print_r($data);
+        echo "</pre></p>";
 }
 ?>
-
+</div>
+</div>
+</div>
 </body>
 </html>
